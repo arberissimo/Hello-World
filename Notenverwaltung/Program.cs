@@ -19,6 +19,9 @@ namespace Notenverwaltung
             while (a == 1)
             {
 
+                Console.Clear();
+
+
             Console.WriteLine("Wählen Sie etwas aus");
             Console.WriteLine("[a] neues Fach erfassen");
             Console.WriteLine("[b] alle Fächer auflisten");
@@ -40,7 +43,7 @@ namespace Notenverwaltung
                     Console.WriteLine("Alle Fächer auflisten");
                     foreach (var fach in Faecher)
                     {
-                        Console.WriteLine("Fach");
+                        Console.WriteLine(fach);
                     }
                     break;
                 case "c":
