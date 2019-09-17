@@ -23,7 +23,6 @@ namespace Notenverwaltung
 
         internal static void Add(Fach fach)
         {
-            throw new NotImplementedException();
         }
     }
 
