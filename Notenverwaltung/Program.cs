@@ -43,7 +43,8 @@ namespace Notenverwaltung
                     Console.WriteLine("Alle Fächer auflisten");
                     foreach (var fach in Faecher)
                     {
-                        Console.WriteLine(fach);
+                        Console.WriteLine(fach.Note);
+                        Console.WriteLine(fach.Beschreibung);
                     }
                     break;
                 case "c":
@@ -55,6 +56,7 @@ namespace Notenverwaltung
                     break;
                 case "e":
                     Console.WriteLine("Exit");
+                    a = 0;
                     break;
                 default:
                     break;

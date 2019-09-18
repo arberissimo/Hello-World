@@ -6,7 +6,7 @@ namespace Notenverwaltung
 {
     public class Noten
     { 
-        public decimal Value { get; set; }
+       public decimal Value { get; set; }
 
        public String Describtion { get; set; }
 
