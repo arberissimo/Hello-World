@@ -25,6 +25,12 @@ namespace Notenverwaltung
                 Name = input1,
                 Beschreibung = input2
             };
+
+
+        }
+
+        internal static void Add(Fach fach)
+        {
         }
     }
 }

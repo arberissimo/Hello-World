@@ -5,7 +5,9 @@ namespace Notenverwaltung
 {
     class Program
     {
-        private static List<Fach> Faecher = new List<Fach>();
+        private static List<Fach> FaecherListe = new List<Fach>();
+
+        public static int FaecherIndex { get; private set; }
 
         private static void Main(string[] args)
         {
@@ -26,8 +28,7 @@ namespace Notenverwaltung
             Console.WriteLine("[a] neues Fach erfassen");
             Console.WriteLine("[b] alle Fächer auflisten");
             Console.WriteLine("[c] neue Note verfassen");
-            Console.WriteLine("[d] Zeugnis anzeigen");
-            Console.WriteLine("[e] Exit");
+            Console.WriteLine("[d] Exit");
 
             var option = Console.ReadLine();
 
@@ -36,25 +37,70 @@ namespace Notenverwaltung
             switch (option)
             {
                 case "a":
-                    Faecher.Add(Fach.Create()); //  Fach.AddFach();
+                    Fach fach = Fach.Create();  //  Fach.AddFach();
+
+                    FaecherListe.Add(fach);
                     Console.WriteLine("Das Fach wurde erfolgreich erstellt.");
+                    Console.ReadKey();
                     break;
                 case "b":
                     Console.WriteLine("Alle Fächer auflisten");
-                    foreach (var fach in Faecher)
+                    foreach (var Fach in FaecherListe)
                     {
-                        Console.WriteLine(fach.Note);
-                        Console.WriteLine(fach.Beschreibung);
+                        Console.WriteLine($"{Fach.Name}: {Fach.Beschreibung}");
                     }
+                    Console.ReadKey();
                     break;
                 case "c":
-                    Noten.Add(Noten.Create());
-                    Console.WriteLine("Die Note wurde erfolgreich hinzugefügt.");
-                    break;
+                    Console.WriteLine("Wählen Sie ein Fach aus: ");
+                    int i = 0;
+
+                        foreach (var Fach in FaecherListe)
+                        {
+                            Console.WriteLine($"[{i + 1}] {FaecherListe[i].Name}");
+                            i++;
+                        }
+                        Console.ReadLine();
+
+                        Console.Clear();
+                        Noten note = Noten.Create();
+
+                        Console.Clear();
+
+                        foreach (var Fach in FaecherListe)
+                        {
+                            Console.WriteLine($"{note.Fach}: {note.Note}");
+                            Console.WriteLine($"\nDatum der abgeschlossener Prüfung: {note.Tag}.{note.Monat}.{note.Jahr}");
+                        }
+                        Console.ReadKey();
+                        Console.Clear();
+
+                        var hinzufuegen = Console.ReadLine();
+
+                        Console.Clear();
+                        Console.WriteLine("Möchten Sie eine neue Note hinzufügen?");
+                        Console.WriteLine("[j] ja");
+                        Console.WriteLine("[n] nein");
+
+
+                        switch (hinzufuegen)
+                        {
+                            case "j":
+                                foreach (var Fach in FaecherListe)
+                                {
+                                    Console.WriteLine($"[{i + 1}] {FaecherListe[i].Name}");
+                                    i++;
+                                }
+                                Console.ReadLine();
+                                break;
+
+                            case "n":
+                                a = 0;
+                                break;
+                        }
+
+                        break;
                 case "d":
-                    Console.WriteLine("Zeugnis zeigen");
-                    break;
-                case "e":
                     Console.WriteLine("Exit");
                     a = 0;
                     break;
