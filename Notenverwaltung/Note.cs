@@ -15,7 +15,6 @@ namespace Notenverwaltung
         public string Jahr { get; private set; }
         public static IEnumerable<object> FaecherListe { get; set; }
         public static string fach { get; private set; }
-        public static object Average { get; private set; }
 
         internal static selectedSubject Create()
         {
@@ -40,8 +39,8 @@ namespace Notenverwaltung
                 Note = note,
                 Tag = tag,
                 Monat = monat,
-                Jahr = jahr
-            };
+                Jahr = jahr,
+                    };
         }
 
         internal static void Add(Fach fach)
