@@ -60,42 +60,63 @@ namespace Notenverwaltung
                             Console.WriteLine($"[{i + 1}] {FaecherListe[i].Name}");
                             i++;
                         }
-                        Console.ReadLine();
+                        string selectedSubjectStr = Console.ReadLine();
+                        int selectedSubjectInt;
+
+                        int.TryParse(selectedSubjectStr, out selectedSubjectInt);
 
                         Console.Clear();
-                        Noten note = Noten.Create();
+
+                        var selectedSubject = FaecherListe[selectedSubjectInt - 1];
+
+                        selectedSubject note = Notenverwaltung.selectedSubject.Create();
 
                         Console.Clear();
 
-                        foreach (var Fach in FaecherListe)
-                        {
-                            Console.WriteLine($"{note.Fach}: {note.Note}");
-                            Console.WriteLine($"\nDatum der abgeschlossener Prüfung: {note.Tag}.{note.Monat}.{note.Jahr}");
-                        }
+                        Console.WriteLine($"{selectedSubject.Name}: {note.Note}");
+                        Console.WriteLine($"\nDatum der abgeschlossener Prüfung: {note.Tag}.{note.Monat}.{note.Jahr}");
+
                         Console.ReadKey();
-                        Console.Clear();
-
-                        var hinzufuegen = Console.ReadLine();
 
                         Console.Clear();
                         Console.WriteLine("Möchten Sie eine neue Note hinzufügen?");
                         Console.WriteLine("[j] ja");
                         Console.WriteLine("[n] nein");
 
+                        var hinzufuegen = Console.ReadLine();
 
                         switch (hinzufuegen)
                         {
                             case "j":
+
+                                Console.Clear();
+                                int b = 0;
+
                                 foreach (var Fach in FaecherListe)
                                 {
-                                    Console.WriteLine($"[{i + 1}] {FaecherListe[i].Name}");
-                                    i++;
+                                    Console.WriteLine($"[{b + 1}] {FaecherListe[b].Name}");
+                                    b++;
                                 }
-                                Console.ReadLine();
+                                string fachAuswaehlenStr = Console.ReadLine();
+                                int fachAuswaehlenInt;
+
+                                int.TryParse(selectedSubjectStr, out fachAuswaehlenInt);
+
+                                Console.Clear();
+
+                                var fachAuswaehlen = FaecherListe[fachAuswaehlenInt - 1];
+
+                                selectedSubject note1 = Notenverwaltung.selectedSubject.Create();
+
+                                Console.Clear();
+
+                                Console.WriteLine($"{fachAuswaehlen.Name}: {note.Note}");
+                                Console.WriteLine($"\nDatum der abgeschlossener Prüfung: {note.Tag}.{note.Monat}.{note.Jahr}");
+
+                                Console.ReadKey();
                                 break;
 
                             case "n":
-                                a = 0;
                                 break;
                         }
 

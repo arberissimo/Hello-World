@@ -4,12 +4,10 @@ using System.Text;
 
 namespace Notenverwaltung
 {
-    public class Noten
+    public class selectedSubject
     {
 
         public decimal Value { get; set; }
-
-       public String Describtion { get; set; }
         public string Note { get; private set; }
         public string Fach { get; private set; }
         public string Tag { get; private set; }
@@ -17,8 +15,9 @@ namespace Notenverwaltung
         public string Jahr { get; private set; }
         public static IEnumerable<object> FaecherListe { get; set; }
         public static string fach { get; private set; }
+        public static object Average { get; private set; }
 
-        internal static Noten Create()
+        internal static selectedSubject Create()
         {
             Console.WriteLine("Geben Sie Ihre Note ein: ");
             String note = Console.ReadLine();
@@ -35,7 +34,7 @@ namespace Notenverwaltung
             Console.WriteLine("Geben Sie Ihre Jahr ein: ");
             String jahr = Console.ReadLine();
 
-            return new Noten()
+            return new selectedSubject()
             {
                 Fach = fach,
                 Note = note,
@@ -49,7 +48,7 @@ namespace Notenverwaltung
         {
         }
 
-        internal static void Add(Noten noten)
+        internal static void Add(selectedSubject noten)
         {
             throw new NotImplementedException();
         }

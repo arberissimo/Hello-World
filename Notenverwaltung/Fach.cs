@@ -6,9 +6,7 @@ namespace Notenverwaltung
 {
     public class Fach {
 
-        
-
-        public String Note { get; set;}
+        public string Note { get; set;}
         public string Name { get; private set; }
         public string Beschreibung { get; private set; }
 
